@@ -1,7 +1,6 @@
 function hello(name){
-    console.log('hello')
+    console.log('hello2')
 }
-console.log('person');
 exports.hello = hello;
 /**
  * 1.如果以属性方式的话，用exports module.exports 效果一样
