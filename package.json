@@ -1,0 +1,26 @@
+{
+  "name": "201601node",
+  "version": "1.0.1",
+  "description": "这是我的第一个项目",
+  "main": "index.js",
+  "dependencies": {
+    "mime": "^1.3.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhufengnodejs/201601node.git"
+  },
+  "keywords": [
+    "zfpx"
+  ],
+  "author": "zfpx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhufengnodejs/201601node/issues"
+  },
+  "homepage": "https://github.com/zhufengnodejs/201601node#readme"
+}
