@@ -11,9 +11,12 @@ var http = require('http');
  *
  */
 var server = http.createServer(function(request,response){
- //write 和end 的参数只能是Buffer或字符串，不能是其它类型
-  response.end(new Buffer("q"));//可以再说一句话
- // response.end();//说完了，挂掉电话,end之后就不能再wirte了
+    var now = new Date();
+    //设置内容类型的响应头
+    response.setHeader('Content-Type','text/html;charset=utf-8');
+    response.end(now.toString());
 });
 //在8080端口上进行监听 ，主机名是localhost
-server.listen(80,'localhost');
+// 0 - 65535
+// ps -ef | grep node
+server.listen(8080,'localhost');
