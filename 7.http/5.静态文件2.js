@@ -15,14 +15,16 @@ var mime = require('mime');
 var path = require('path');
 var server = http.createServer(function(request,response){
     var url = request.url;
+    //如果访问收藏图标的话，直接返回404记得加return
     if(url == '/favicon.ico'){
         return response.end('404');
     }
+    // 如果访问/,重定向到index.html，也就是默认首页
     if(url == '/'){
         url = '/index.html';
     }
     console.log(url);
-    response.setHeader('Content-Type',mime.lookup(request.url)+';charset=utf-8');//设置响应头
+    response.setHeader('Content-Type',mime.lookup(url)+';charset=utf-8');//设置响应头
     //判断文件是否存在，如果存在则读取并返回给客户端
     //如果不存在，则报404 Not Found
     fs.exists('.'+url,function(exists){
