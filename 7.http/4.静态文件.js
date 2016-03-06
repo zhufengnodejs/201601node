@@ -10,19 +10,25 @@ var http = require('http');
  * response 代表向客户端发的响应，可以通过它向客户端发响应
  *
  */
+var fs = require('fs');
 var server = http.createServer(function(request,response){
-    console.log(request.method);//请求的方法
-    console.log(request.url);//请求的URL
-    console.log(request.headers);//请求的头
-// Can't set headers after they are sent.at ServerResponse.OutgoingMessage.setHea
-//在响应头发出以后不能再发送响应头
-    response.statusCode = 404;//调响应码
-    response.setHeader('Content-Type','text/html;charset=utf-8');//设置响应头
-    response.write('hello');//写的响应体,在调用第一次write的时候，会发送响应头和第一个write的内容
-    setTimeout(function(){
-        response.write('world');
-        response.end('over');
-    },2000)
+    var url = request.url;
+
+    if(url == '/index.html'){
+        //指定文件的路径 设置编码 得到data就是字符串类型的
+        response.setHeader('Content-Type','text/html;charset=utf-8');//设置响应头
+        fs.readFile('./index.html','utf8',function(err,data){
+            response.write(data);
+            response.end();
+        })
+    }else if(url == '/style.css'){
+        response.setHeader('Content-Type','text/css;charset=utf-8');//设置响应头
+        fs.readFile('./style.css','utf8',function(err,data){
+            response.write(data);
+            response.end();
+        })
+    }
+
 
 
 });
