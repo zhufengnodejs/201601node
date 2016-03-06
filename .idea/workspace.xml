@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75b25342-f67c-494b-82e1-27758ba5de9c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/7.http/1.server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/6.file/7.path.js" afterPath="$PROJECT_DIR$/6.file/7.path.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/7.http/reg.html" afterPath="$PROJECT_DIR$/7.http/reg.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/第一周作业.md" afterPath="$PROJECT_DIR$/homework/第一周作业.md" />
     </list>
     <ignored path="201601node.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="1.server.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/7.http/1.server.js">
+      <file leaf-file-name="第一周作业.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/第一周作业.md">
+          <provider editor-type-id="MultiMarkdownFxHtmlEditor">
+            <state />
+          </provider>
+          <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5026738">
-              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.4375">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reg.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7.http/reg.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.425">
+              <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="8.reg.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/7.http/8.reg.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -41,7 +67,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="json" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -68,6 +96,21 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/6.file/7.path.js" />
         <option value="$PROJECT_DIR$/7.http/1.server.js" />
+        <option value="$PROJECT_DIR$/7.http/2.server.js" />
+        <option value="$PROJECT_DIR$/7.http/3.获取请求中的数据.js" />
+        <option value="$PROJECT_DIR$/7.http/style.css" />
+        <option value="$PROJECT_DIR$/7.http/index.js" />
+        <option value="$PROJECT_DIR$/7.http/test.js" />
+        <option value="$PROJECT_DIR$/7.http/4.静态文件.js" />
+        <option value="$PROJECT_DIR$/7.http/5.静态文件2.js" />
+        <option value="$PROJECT_DIR$/7.http/index.html" />
+        <option value="$PROJECT_DIR$/7.http/6.clock.js" />
+        <option value="$PROJECT_DIR$/7.http/clock.html" />
+        <option value="$PROJECT_DIR$/7.http/7.clock.js" />
+        <option value="$PROJECT_DIR$/7.http/8.reg.html" />
+        <option value="$PROJECT_DIR$/7.http/8.reg.js" />
+        <option value="$PROJECT_DIR$/7.http/reg.html" />
+        <option value="$PROJECT_DIR$/homework/第一周作业.md" />
       </list>
     </option>
   </component>
@@ -138,6 +181,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="homework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="201601node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="201601node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="7.http" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -154,26 +211,29 @@
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="javascript.nodejs.core.library.configured.version" value="5.5.0" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\vip_data\standard\201601node\7.http" />
       <recent name="D:\vip_data\standard\201601node\6.file" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.1.server.js">
-    <configuration default="false" name="1.read.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="1.read.js" working-dir="$PROJECT_DIR$/6.file">
+  <component name="RunManager" selected="Node.js.8.reg.js">
+    <configuration default="false" name="5.静态文件2.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="5.静态文件2.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
-    <configuration default="false" name="5.copy.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="5.copy.js" working-dir="$PROJECT_DIR$/6.file">
+    <configuration default="false" name="test.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="test.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
-    <configuration default="false" name="6.目录.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="6.目录.js" working-dir="$PROJECT_DIR$/6.file">
+    <configuration default="false" name="6.clock.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="$PROJECT_DIR$/7.http/6.query.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
-    <configuration default="false" name="7.path.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="7.path.js" working-dir="$PROJECT_DIR$/6.file">
+    <configuration default="false" name="7.clock.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="7.clock.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
-    <configuration default="false" name="1.server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="1.server.js" working-dir="$PROJECT_DIR$/7.http">
+    <configuration default="false" name="8.reg.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="8.reg.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -220,19 +280,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.1.read.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.7.path.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.1.server.js" />
+      <item index="0" class="java.lang.String" itemvalue="Node.js.5.静态文件2.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.test.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.6.clock.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.7.clock.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.8.reg.js" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.1.server.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.7.path.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.1.read.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.8.reg.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.7.clock.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.6.clock.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.5.静态文件2.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.test.js" />
       </list>
     </recent_temporary>
   </component>
@@ -262,20 +322,74 @@
       <option name="project" value="LOCAL" />
       <updated>1457236185482</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.读取文件">
+      <created>1457240830605</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1457240830605</updated>
+    </task>
+    <task id="LOCAL-00005" summary="设置请求和响应">
+      <created>1457248874855</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1457248874855</updated>
+    </task>
+    <task id="LOCAL-00006" summary="设置请求和响应">
+      <created>1457249784721</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1457249784721</updated>
+    </task>
+    <task id="LOCAL-00007" summary="设置请求和响应">
+      <created>1457250796023</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1457250796023</updated>
+    </task>
+    <task id="LOCAL-00008" summary="设置编码">
+      <created>1457251394830</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1457251394830</updated>
+    </task>
+    <task id="LOCAL-00009" summary="设置编码">
+      <created>1457252107615</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1457252107615</updated>
+    </task>
+    <task id="LOCAL-00010" summary="实现ajax">
+      <created>1457256540558</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1457256540558</updated>
+    </task>
+    <task id="LOCAL-00011" summary="接收客户端的请求并处理">
+      <created>1457258503303</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1457258503303</updated>
+    </task>
+    <task id="LOCAL-00012" summary="接收客户端的请求并处理">
+      <created>1457259114372</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1457259114372</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="163" y="-776" width="1040" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23410696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21291624" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31683168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.047854785" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -294,7 +408,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1.读取文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.读取文件" />
+    <MESSAGE value="设置请求和响应" />
+    <MESSAGE value="设置编码" />
+    <MESSAGE value="实现ajax" />
+    <MESSAGE value="接收客户端的请求并处理" />
+    <option name="LAST_COMMIT_MESSAGE" value="接收客户端的请求并处理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -463,10 +581,144 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.775">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/2.server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/3.获取请求中的数据.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="72" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="12" selection-start-line="0" selection-start-column="12" selection-end-line="0" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mime/types.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.446352">
+          <caret line="0" column="151" selection-start-line="0" selection-start-column="151" selection-end-line="0" selection-end-column="151" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/mime/mime.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/4.静态文件.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="6" selection-start-line="16" selection-start-column="5" selection-end-line="18" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/5.静态文件2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="29" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/7.http/1.server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5026738">
-          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.65619224">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.65">
+          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/clock.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.425">
+          <caret line="24" column="79" selection-start-line="24" selection-start-column="79" selection-end-line="24" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/7.clock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/6.query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/reg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.425">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/7.http/8.reg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/第一周作业.md">
+      <provider editor-type-id="MultiMarkdownFxHtmlEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4375">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
