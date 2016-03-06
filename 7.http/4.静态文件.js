@@ -27,6 +27,12 @@ var server = http.createServer(function(request,response){
             response.write(data);
             response.end();
         })
+    }else if(url == '/index.js'){
+        response.setHeader('Content-Type','text/javascript;charset=utf-8');//设置响应头
+        fs.readFile('./index.js','utf8',function(err,data){
+            response.write(data);
+            response.end();
+        })
     }
 
 
