@@ -15,12 +15,38 @@ var mime = require('mime');
 var path = require('path');
 var server = http.createServer(function(request,response){
     var url = request.url;
+    if(url == '/favicon.ico'){
+        return response.end('404');
+    }
+    if(url == '/'){
+        url = '/index.html';
+    }
     console.log(url);
     response.setHeader('Content-Type',mime.lookup(request.url)+';charset=utf-8');//设置响应头
-    fs.readFile('.'+url,function(err,data){
-            response.write(data);
+    //判断文件是否存在，如果存在则读取并返回给客户端
+    //如果不存在，则报404 Not Found
+    fs.exists('.'+url,function(exists){
+        if(exists){
+            fs.readFile('.'+url,function(err,data){
+                console.error(url,err,data);
+                //如果读取文件出错了，则也报404错误
+                if(err){
+                    response.statusCode = 404;
+                    response.end();
+                }else{
+                    response.statusCode = 200;
+                    response.write(data);
+                    response.end();
+                }
+
+            })
+        }else{
+            response.statusCode = 404;
             response.end();
+        }
+
     })
+
 });
 //在8080端口上进行监听 ，主机名是localhost
 // 0 - 65535
