@@ -15,6 +15,7 @@ var mime = require('mime');
 var path = require('path');
 //node亲生的模块，帮助我们解析请求中的URL的
 var url = require('url');
+var users = [];
 var server = http.createServer(function(request,response){
    //把url转成url对象
     var urlObj = url.parse(request.url,true);
@@ -23,13 +24,23 @@ var server = http.createServer(function(request,response){
     //pathname 指的是路径名 问号和端口号中间的那一部分
     if(urlObj.pathname == '/'){
         response.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
-        fs.readFile('./clock.html',function(err,data){
+        fs.readFile('./reg.html',function(err,data){
             response.end(data);
         })
-   }else if(urlObj.pathname == '/clock'){
-            //response.end(new Date().toLocaleString());
-        response.statusCode = 404;
-        response.end('404');
+   }else if(urlObj.pathname == '/reg'){
+        //每当服务器收到客户端发过来的一段数据的时候就会触发data事件
+       var str = '';
+        request.on('data',function(data){
+            str+=data.toString();
+       });
+        //当所有的数据全部接收完毕的时候会会触发end事件，这时请求体的数据就接收完整了
+        request.on('end',function(){
+            console.log(str);
+            //转成对象追加到用户列表里
+            users.push(JSON.parse(str));
+            //最后返回用户列表
+            response.end(JSON.stringify(users));
+        })
     }
 });
 //在8080端口上进行监听 ，主机名是localhost
