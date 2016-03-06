@@ -15,3 +15,6 @@ console.log(__dirname);//获取 当前模块所在的绝对目录
 console.log(path.basename('7.path.js','.js'));
 //获取一个路径里文件的扩展名
 console.log(path.extname('7.path.js'));
+//从一个相对路径解析出一个绝对路径
+//以应用程序的所在目录为根起
+console.log(path.resolve('book','node.json','..','mysql.json'));

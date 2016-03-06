@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75b25342-f67c-494b-82e1-27758ba5de9c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/atm.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/atm2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/6.目录.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/7.path.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/book/javascript.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/book/mysql.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/book/node.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/6.file/name.bak.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/7.http/1.server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/6.file/5.copy.js" afterPath="$PROJECT_DIR$/6.file/5.copy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/6.file/7.path.js" afterPath="$PROJECT_DIR$/6.file/7.path.js" />
     </list>
     <ignored path="201601node.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="1.server.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/7.http/1.server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49041095">
-              <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+            <state vertical-scroll-proportion="0.5026738">
+              <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -74,8 +65,9 @@
         <option value="$PROJECT_DIR$/6.file/book/javascript.json" />
         <option value="$PROJECT_DIR$/6.file/book/mysql.json" />
         <option value="$PROJECT_DIR$/6.file/6.目录.js" />
-        <option value="$PROJECT_DIR$/6.file/7.path.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/6.file/7.path.js" />
+        <option value="$PROJECT_DIR$/7.http/1.server.js" />
       </list>
     </option>
   </component>
@@ -136,6 +128,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="201601node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="201601node" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="7.http" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -147,17 +153,15 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="javascript.nodejs.core.library.configured.version" value="5.5.0" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\vip_data\standard\201601node\6.file" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.7.path.js">
+  <component name="RunManager" selected="Node.js.1.server.js">
     <configuration default="false" name="1.read.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="1.read.js" working-dir="$PROJECT_DIR$/6.file">
-      <method />
-    </configuration>
-    <configuration default="false" name="4.writeFile.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="4.writeFile.js" working-dir="$PROJECT_DIR$/6.file">
       <method />
     </configuration>
     <configuration default="false" name="5.copy.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="5.copy.js" working-dir="$PROJECT_DIR$/6.file">
@@ -167,6 +171,9 @@
       <method />
     </configuration>
     <configuration default="false" name="7.path.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="7.path.js" working-dir="$PROJECT_DIR$/6.file">
+      <method />
+    </configuration>
+    <configuration default="false" name="1.server.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="C:/Program Files/nodejs/node" path-to-js-file="1.server.js" working-dir="$PROJECT_DIR$/7.http">
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -214,18 +221,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.1.read.js" />
-      <item index="1" class="java.lang.String" itemvalue="Node.js.4.writeFile.js" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
-      <item index="4" class="java.lang.String" itemvalue="Node.js.7.path.js" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
+      <item index="2" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
+      <item index="3" class="java.lang.String" itemvalue="Node.js.7.path.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.1.server.js" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.7.path.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.1.read.js" />
-        <item index="4" class="java.lang.String" itemvalue="Node.js.4.writeFile.js" />
+        <item index="0" class="java.lang.String" itemvalue="Node.js.1.server.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.7.path.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.6.目录.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.5.copy.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.1.read.js" />
       </list>
     </recent_temporary>
   </component>
@@ -249,20 +256,26 @@
       <option name="project" value="LOCAL" />
       <updated>1457233082333</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1.读取文件">
+      <created>1457236185482</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1457236185482</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="163" y="-776" width="1040" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32996973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23410696" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33168316" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31683168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -432,20 +445,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49041095">
+          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/6.file/7.path.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32054794">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.59322035">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="24" />
           <folding>
             <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/7.http/1.server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49041095">
-          <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.5026738">
+          <caret line="18" column="32" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
