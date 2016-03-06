@@ -39,7 +39,7 @@ var server = http.createServer(function(request,response){
             //转成对象追加到用户列表里
             users.push(JSON.parse(str));
             //最后返回用户列表
-            response.end(JSON.stringify(users));
+            response.end(str);
         })
     }
 });
