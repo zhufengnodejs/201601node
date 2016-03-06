@@ -13,7 +13,10 @@ var http = require('http');
 var fs = require('fs');
 var server = http.createServer(function(request,response){
     var url = request.url;
-
+    //如果没有指定文件名，或访问的是根目录，那么可以重定向到默认首页
+     if(url == '/'){
+         url = '/index.html';
+     }
     if(url == '/index.html'){
         //指定文件的路径 设置编码 得到data就是字符串类型的
         response.setHeader('Content-Type','text/html;charset=utf-8');//设置响应头
@@ -27,8 +30,11 @@ var server = http.createServer(function(request,response){
             response.write(data);
             response.end();
         })
-    }else if(url == '/index.js'){
+        //http://localhost/abc
+    }else if(url == '/index.js'){//判断URL的时候一定是/开头的
         response.setHeader('Content-Type','text/javascript;charset=utf-8');//设置响应头
+        //读取文件的时候，因为是相对当前目录，所以一定要加点
+        //如果 读文件的时候写/index.js，读取当前根目录下面的index.js
         fs.readFile('./index.js','utf8',function(err,data){
             response.write(data);
             response.end();

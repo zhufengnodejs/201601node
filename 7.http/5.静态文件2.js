@@ -15,8 +15,9 @@ var mime = require('mime');
 var path = require('path');
 var server = http.createServer(function(request,response){
     var url = request.url;
+    console.log(url);
     response.setHeader('Content-Type',mime.lookup(request.url)+';charset=utf-8');//设置响应头
-    fs.readFile('.'+url,'utf8',function(err,data){
+    fs.readFile('.'+url,function(err,data){
             response.write(data);
             response.end();
     })
