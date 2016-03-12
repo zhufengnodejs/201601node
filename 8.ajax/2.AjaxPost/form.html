@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="userform" method="post" enctype="multipart/form-data">
+    用户名<input type="text" name="username"><br/>
+    密码<input type="text" name="password"><br/>
+    头像 <input type="file"  name="avatar">
+    <input type="submit" value="注册">
+    <input type="button" id="regBtn" value="注册"/>
+</form>
+</body>
+<script>
+    window.onload = function(){
+        document.querySelector('#regBtn').addEventListener('click',function(){
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST','/reg2',true);
+            //设置响应类型
+            xhr.responseType = 'text';
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
+                    console.log(xhr.responseText);
+                }
+            };
+            var formData = new FormData();
+            formData.append('username',document.querySelector('input[name=username]').value);
+            formData.append('password',document.querySelector('input[name=password]').value);
+             var avatar = document.querySelector('input[name=avatar]')
+            formData.append('avatar',avatar.files[0]);
+            xhr.send(formData);
+            return false;
+        })
+    }
+
+</script>
+</html>
