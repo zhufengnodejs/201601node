@@ -19,7 +19,7 @@ http.createServer(function(req,res){
     var pathname = urlObj.pathname;
     if(pathname == '/'){
         //读取文件的内容
-        fs.readFile('./form.html','utf8',function(err,data){
+        fs.readFile('./html/form.html','utf8',function(err,data){
                 res.end(data);
         })
     }else if(pathname == '/reg'){
@@ -61,7 +61,17 @@ http.createServer(function(req,res){
            })
         });
     }else{
-        fs.exists('.'+pathname,function(exists){
+        /**
+         *  . 当前目录
+         *  ./index.js 当前目录下的某个文件
+         *  / 1. 如果是在HTML的链接里，代表URL 根目录
+         *    2. 如果出现在读文件的时候,则它代理当前盘符的根目录
+         *  index.js 代表当前目录下面的index.js文件 = ./index.js
+         *  .. 代表上一级目录
+         *  ../../ 代表爷爷目录
+         */
+        //   /js/index.js
+        fs.exists('/index.js',function(exists){
             if(exists){
                 //从文件名中获取文件的Content-Type
                 res.setHeader('Content-Type',mime.lookup(pathname));
