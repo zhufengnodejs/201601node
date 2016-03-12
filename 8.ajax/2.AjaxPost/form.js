@@ -4,7 +4,9 @@ var http = require('http');
 var url = require('url');
 //读写文件
 var fs = require('fs');
+var formidable = require('formidable');
 var querystring = require('querystring');
+var util  = require('util');
 //创建http服务器
 //只有当提交form表单，并且是GET请求的时候，浏览器才会把表单进行序列化拼到URL后面
 http.createServer(function(req,res){
@@ -16,7 +18,7 @@ http.createServer(function(req,res){
     var pathname = urlObj.pathname;
     if(pathname == '/'){
         //读取文件的内容
-        fs.readFile('./index.html','utf8',function(err,data){
+        fs.readFile('./form.html','utf8',function(err,data){
                 res.end(data);
         })
     }else if(pathname == '/reg'){
@@ -42,7 +44,17 @@ http.createServer(function(req,res){
             res.end('ok');
         })
     }else if(pathname == '/reg2'){
-        res.end('ok2');
+        // 构建一个解析器
+        var form = new formidable.IncomingForm();
+       ///用解析器解析请求体
+        //把非file的input放在fields里
+        //把文件类型的元素放在files里
+        form.parse(req, function(err, fields, files) {
+            res.writeHead(200, {'content-type': 'text/plain'});
+            res.write('received upload:\n\n');
+            //inspect是把对象转成字符串
+            res.end(util.inspect({fields: fields, files: files}));
+        });
     }
 
 

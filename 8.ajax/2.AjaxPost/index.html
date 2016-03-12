@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-<form name="userform" >
+<form name="userform" method="post">
     用户名<input type="text" name="username"><br/>
     密码<input type="text" name="password">
-    <input type="button" id="regBtn">注册</input>
+    <input type="submit" value="注册">
+    <input type="button" id="regBtn" value="注册"/>
 </form>
 </body>
 <script>
@@ -31,12 +32,33 @@
         });
         return data.join('&');
     }
+    function toJson(form){
+        //把表单中的元素集合转成一个数组
+        var elements = Array.prototype.slice.call(form.elements) ;
+        //循环这个数组
+        var data = {};
+        elements.forEach(function(element){
+            //先取出元素的类型
+            var type = element.type;
+            switch(type){
+                case 'submit':
+                case 'cancel':
+                case 'reset':
+                    break;
+                case 'text':
+                    data[element.name] = element.value;
+            }
+        });
+        return data;
+    }
     window.onload = function(){
         document.querySelector('#regBtn').addEventListener('click',function(){
             var xhr = new XMLHttpRequest();
             xhr.open('POST','/reg',true);
             //设置响应类型
             xhr.responseType = 'text';
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+            //xhr.setRequestHeader('Content-Type','application/json')
             xhr.onreadystatechange = function(){
                 if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
                     console.log(xhr.responseText);
@@ -44,9 +66,11 @@
             }
             // 把表单的值 转成查询字符串
             var data = serialize(document.querySelector('form'));
-            console.log(data);
-            //把数据放在请求体里发送给服务器
             xhr.send(data);
+
+            //var data = toJson(document.querySelector('form'));
+            //把数据放在请求体里发送给服务器
+            //xhr.send(JSON.stringify(data));
             return false;
         })
     }
