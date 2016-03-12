@@ -8,7 +8,10 @@ function afterRead(err,data){
     }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ecd38f75474cf2841c56067b91cab60ab2bb1bc
 /**
  * 1.异步方法需要把回调函数传入
  * 2. 回调函数会在同步方法执行完毕之后才执行异步回调
@@ -21,6 +24,9 @@ fs.readFile('./index.txt','utf8',function(err,data){
         console.log(data);
     }
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3ecd38f75474cf2841c56067b91cab60ab2bb1bc
 console.log('b');
 console.log('c');

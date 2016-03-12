@@ -18,6 +18,11 @@ var url = require('url');
 var server = http.createServer(function(request,response){
    //把url转成url对象
     var urlObj = url.parse(request.url,true);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3ecd38f75474cf2841c56067b91cab60ab2bb1bc
     //pathname 指的是路径名 问号和端口号中间的那一部分
     if(urlObj.pathname == '/'){
         response.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
@@ -26,8 +31,13 @@ var server = http.createServer(function(request,response){
         })
    }else if(urlObj.pathname == '/clock'){
         response.end(new Date().toLocaleString());
+<<<<<<< HEAD
         //response.statusCode = 404;
         //response.end('404');
+=======
+        response.statusCode = 404;
+        response.end('404');
+>>>>>>> 3ecd38f75474cf2841c56067b91cab60ab2bb1bc
     }
 });
 //在8080端口上进行监听 ，主机名是localhost
