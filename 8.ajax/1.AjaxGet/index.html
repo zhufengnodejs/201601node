@@ -10,17 +10,19 @@
 <script>
   var xhr = new XMLHttpRequest();
   xhr.open('GET','books.json',true);
-  xhr.responseType = 'json';
+  //设置响应类型
+  xhr.responseType = 'text';
   xhr.onreadystatechange = function(){
       if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
           //获取所有的响应头
-          console.log(xhr.getAllResponseHeaders());
+          //console.log(xhr.getAllResponseHeaders());
           //获取指定的响应头
-          console.log(xhr.getResponseHeader('Content-Type'));
+          //console.log(xhr.getResponseHeader('Content-Type'));
           //获取响应体以及响应的状态码描述
           //console.log(xhr.responseText,xhr.statusText);
           //输出响应体，响应体的类型由responseType决定
-          console.log(xhr.response);
+          //console.log(xhr.response);
+          //得到响应体，转成json数组
           var books = xhr.response;
           var content = document.querySelector('#content');
           for(var i=0;i<books.length;i++){
