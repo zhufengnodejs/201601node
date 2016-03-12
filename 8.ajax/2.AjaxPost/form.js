@@ -43,19 +43,26 @@ http.createServer(function(req,res){
             //发送响应
             res.end('ok');
         })
-    }else if(pathname == '/reg2'){
+    }else if(pathname == '/reg2') {
         // 构建一个解析器
         var form = new formidable.IncomingForm();
-       ///用解析器解析请求体
+        ///用解析器解析请求体
         //把非file的input放在fields里
         //把文件类型的元素放在files里
-        form.parse(req, function(err, fields, files) {
+        form.parse(req, function (err, fields, files) {
             res.writeHead(200, {'content-type': 'text/plain'});
             res.write('received upload:\n\n');
             //inspect是把对象转成字符串
             res.end(util.inspect({fields: fields, files: files}));
-        });
+            var formParser = new formidable.IncomingForm();
+            ///用解析器解析请求体
+            //把非file的input放在fields里
+            //把文件类型的元素放在files里
+            formParser.parse(req, function (err, fields, files) {
+                res.writeHead(200, {'content-type': 'text/plain'});
+                //inspect是把对象转成字符串
+                res.end("/imgs/3.png");
+            });
+        })
     }
-
-
 }).listen(8080);
