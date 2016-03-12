@@ -27,7 +27,7 @@ var server = http.createServer(function(request,response){
             response.end(data);
         })
    }else if(urlObj.pathname == '/clock'){
-            //response.end(new Date().toLocaleString());
+        response.end(new Date().toLocaleString());
         response.statusCode = 404;
         response.end('404');
     }
