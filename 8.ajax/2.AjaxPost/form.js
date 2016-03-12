@@ -7,6 +7,7 @@ var fs = require('fs');
 var formidable = require('formidable');
 var querystring = require('querystring');
 var util  = require('util');
+var mime  = require('mime');
 //创建http服务器
 //只有当提交form表单，并且是GET请求的时候，浏览器才会把表单进行序列化拼到URL后面
 http.createServer(function(req,res){
@@ -18,7 +19,7 @@ http.createServer(function(req,res){
     var pathname = urlObj.pathname;
     if(pathname == '/'){
         //读取文件的内容
-        fs.readFile('./form.html','utf8',function(err,data){
+        fs.readFile('./html/form.html','utf8',function(err,data){
                 res.end(data);
         })
     }else if(pathname == '/reg'){
@@ -49,6 +50,7 @@ http.createServer(function(req,res){
         ///用解析器解析请求体
         //把非file的input放在fields里
         //把文件类型的元素放在files里
+<<<<<<< HEAD
         form.parse(req, function (err, fields, files) {
             res.writeHead(200, {'content-type': 'text/plain'});
             res.write('received upload:\n\n');
@@ -63,6 +65,40 @@ http.createServer(function(req,res){
                 //inspect是把对象转成字符串
                 res.end("/imgs/3.png");
             });
+=======
+        formParser.parse(req, function(err, fields, files) {
+           fs.readFile(files.avatar.path,function(err,data){
+               console.log(files.avatar);
+               var filename = '/imgs/'+files.avatar.name;
+               fs.writeFile('.'+filename,data,function(err){
+                   res.writeHead(200,{'Content-Type':'text/plain'});
+                   res.end(filename);
+               })
+           })
+        });
+    }else{
+        /**
+         *  . 当前目录
+         *  ./index.js 当前目录下的某个文件
+         *  / 1. 如果是在HTML的链接里，代表URL 根目录
+         *    2. 如果出现在读文件的时候,则它代理当前盘符的根目录
+         *  index.js 代表当前目录下面的index.js文件 = ./index.js
+         *  .. 代表上一级目录
+         *  ../../ 代表爷爷目录
+         */
+        //   /js/index.js
+        fs.exists('/index.js',function(exists){
+            if(exists){
+                //从文件名中获取文件的Content-Type
+                res.setHeader('Content-Type',mime.lookup(pathname));
+                fs.readFile('.'+pathname,function(err,data){
+                    res.end(data);
+                })
+            }else{
+                res.statusCode = 404;
+                res.end(JSON.stringify({name:'zfpx'}));
+            }
+>>>>>>> 348375664d1827fa3567d735906b4ba64d5cb627
         })
     }
 }).listen(8080);
