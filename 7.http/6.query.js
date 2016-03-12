@@ -18,7 +18,7 @@ var url = require('url');
 var server = http.createServer(function(request,response){
    //把url转成url对象
     var urlObj = url.parse(request.url,true);
-
+    console.log(urlObj);
    response.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
     //pathname 指的是路径名 问号和端口号中间的那一部分
     if(urlObj.pathname == '/apple'){
