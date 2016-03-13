@@ -36,6 +36,7 @@ http.createServer(function(req,res){
 
         users.push(user);
         res.end(JSON.stringify(users));
+        console.log('ccc');
     });
 
 }).listen(8080);
