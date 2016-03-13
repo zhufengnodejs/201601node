@@ -28,7 +28,7 @@ http.createServer(function(req,res){
         req.on('data',function(data){
             result +=data;
         })
-        req.on('end',function(data){
+        req.on('end',function(){
             //取出请求体的内容类型
             var contentType = req.headers['content-type'];
             //如果请求体发过来的是序列化表单
