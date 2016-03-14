@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body style="width:80%; margin: 0 auto;">
+<div id="form" style="padding-bottom: 30px;">
+    <h2 class="form-title">Add user</h2>
+    <div class="form-group">
+        <label for="username" >Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Please input your name"/>
+    </div>
+    <div class="form-group">
+        <label for="age" >Age</label>
+        <input type="text" id="age" class="form-control" name="age" placeholder="Please input your age"/>
+    </div>
+     <button type="submit" class="btn btn-primary" id="add">Add</button>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <h2>用户列表</h2>
+        <table class="table table-hover">
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script src="jquery.min.js"></script>
+<script>
+    //Query
+//    $('.table').hide();
+    $.ajax({
+        url: '/users',
+        type: 'get',
+        dataType: 'json',
+        success: function(data){
+            if(data.status == "success"){
+                var str = '';
+                $.each(data.value, function(index, item){
+                    str += '<tr><td class="username">'+ item.username +'</td><td class="age">'+ item.age +'</td>' +
+                            '<td class="col-sm-4">' +
+                            '<button type="button" class="btn btn-info edit" id_attr="'+item.id+'">Edit</button>' +
+                            '<button type="button" class="btn btn-warning col-sm-offset-1 remove" id_attr="'+item.id+'">Remove</button>' +
+                            '</td></tr>';
+                })
+                $('.table').append(str);
+
+                remove();
+
+                $('.edit').on('click', function(){
+                    var id = $(this).attr('id_attr');
+
+                    var formTitle = $('.form-title'),
+                            formBtn = $('#form button'),
+                            formDiv = $('#form'),
+                            submitEditBtn= $('<button type="submit" class="btn btn-primary" id="submitEdit">Submit edit</button>'),
+                            usrNameInput = $('input[name="username"]'),
+                            ageInput = $('input[name="age"]'),
+                            usrNameTd = $(this).parent().parent().find('.username'),
+                            ageTd = $(this).parent().parent().find('.age');
+
+                    formTitle.text('Edit user');
+                    formBtn.remove();
+                    formDiv.append(submitEditBtn);
+                    usrNameInput.val(usrNameTd.text());
+                    ageInput.val(ageTd.text());
+
+                    $('#submitEdit').on('click', function(){
+                        var username = usrNameInput.val();
+                        var age = ageInput.val();
+
+                        var user = {
+                            username: username,
+                            age: age,
+                            id: id
+                        };
+
+                        console.log('user',JSON.stringify(user));
+
+                        $.ajax({
+                            url: '/users',
+                            type: 'put',
+                            data: JSON.stringify(user),
+                            dataType: 'json',
+                            success: function(data){
+                                if(data.status == 'success'){
+                                    console.log('Edit success', data.value);
+                                    window.location.reload();
+                                }
+                            },
+                            error: function(xhr, status, err){
+                                console.error('Edit fail' + err);
+                            }
+                        });
+                    });
+                });
+
+            }
+        },
+        error: function (xhr, status, err) {
+            console.error(err);
+        }
+    });
+    //Add user
+    $('#add').on('click', function(){
+//        $('.table').show();
+//        $('#form').hide();
+        add();
+    });
+
+    function add(){
+        var username = $('input[name="username"]').val();
+        var age = $('input[name="age"]').val();
+
+        var user = {
+            username: username,
+            age: age
+        };
+
+        $.ajax({
+            url: '/users',
+            type: 'post',
+            data: JSON.stringify(user),
+            dataType: 'json',
+            success: function(data){
+                if(data.status == 'success'){
+                    console.log('add success', data.value);
+                    var str = '<tr><td class="username">'+ data.value.username +'</td><td class="age">'+ data.value.age +'</td>' +
+                            '<td class="col-sm-4">' +
+                            '<button type="button" class="btn btn-info edit" id_attr="'+data.value.id+'">Edit</button>' +
+                            '<button type="button" class="btn btn-warning col-sm-offset-1 remove" >Remove</button>' +
+                            '</td></tr>';
+                    $('.table').append(str);
+                    window.location.reload();
+                }
+            },
+            error: function(xhr, status, err){
+                console.error('Add fail' + err);
+            }
+        });
+    }
+
+
+    //Remove user
+    function remove(){
+        $('.remove').on('click', function(){
+            $(this).parent().parent().remove();
+            var id = $(this).attr('id_attr');
+            $.ajax({
+                url: '/users',
+                type: 'delete',
+                data: id,
+                dataType: 'json',
+                success: function(data){
+                    if(data.status == 'success'){
+                        console.log('remove success', data.value);
+                    }
+                },
+                error: function(xhr, status, err){
+                    console.error('Add fail' + err);
+                }
+            });
+        });
+    }
+
+    //Edit user
+    function edit(){
+
+    }
+
+</script>
