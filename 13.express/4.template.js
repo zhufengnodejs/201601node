@@ -8,12 +8,15 @@ var app = express();
  */
 //配置属性值
 //配置模板引擎
+// jade ejs
 app.set('view engine','ejs');
 //指定模板存放的目录
 // resolve 先获取当前文件的所在在绝对目录 ，然后再拼上后面的参数
 app.set('views',path.resolve('views'));
 
 app.get('/',function(req,res){
+
+    //把模板和数据混合成HTML页面
     res.render('index.ejs',{title:'首页',books:{
         name:'node.js'
     }});

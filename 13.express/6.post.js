@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended:true}));//此中间件会把请求体提
 //如果请求头里的content-type是application/json的时候，, 会用此中间件转成对象放到req.body上，否则 什么都不错
 //app.use(bodyParser.json());
 app.post('/reg',function(req,res){
+    //把请求体里的数据转变成对象放在req.body上
     console.log(req.body);
     res.end('reg');
 });
