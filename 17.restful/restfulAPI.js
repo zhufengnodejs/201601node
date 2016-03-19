@@ -6,7 +6,7 @@ app.set('view engine','ejs');
 //path.resolve  取当前目录的绝对路径
 app.set('views',path.resolve());
 app.use(bodyParser.urlencoded({extended:true}));
-var users = [{id: 1, name: 'zfpx1'}, {id: 2, name: 'zfpx2'}];
+var users = [{id: 1, name: 'zfpx1',mny:100}, {id: 2, name: 'zfpx2',mny:100}];
 /**
  * 1. 获取所有的用户 curl -v -H 'accept:text/html'  http://localhost:8080/users
  * 2.
@@ -65,6 +65,64 @@ app.post('/users', function (req, res) {
     }else{
         res.send({msg:'增加资源失败'});
     }
+});
+//整体更新全部属性
+// curl -X PUT --data "id=2&name=zfpx20"  http://localhost:8080/users/2
+app.put('/users/:id',function(req,res){
+    var putUser = req.body;
+    if(putUser){
+        for(var i=0;i<users.length;i++){
+            //判断当前用户和用户传进来要更新的用户ID是否一致
+            if(users[i].id == req.params.id){
+                users[i] = putUser;//把老的对象整体替换成新的对象
+               break;
+            }
+        }
+        res.send(putUser);
+    }else{
+        res.send({msg:'更新资源失败'});
+    }
+});
+//局部更新 请求体里只传要更新的字段
+//curl -X PATCH --data "name=zfpx200"  http://localhost:8080/users/2
+app.patch('/users/:id',function(req,res){
+    var updatedFields = req.body;
+    if(updatedFields){
+        for(var i=0;i<users.length;i++){
+            //判断当前用户和用户传进来要更新的用户ID是否一致
+            if(users[i].id == req.params.id){
+              for(var attr in updatedFields){
+                  //用新的值替换旧的值
+                  if(updatedFields.hasOwnProperty(attr))
+                    users[i][attr] = updatedFields[attr];
+              }
+                res.send(users[i]);
+                break;
+            }
+        }
+
+    }else{
+        res.send({msg:'更新资源失败'});
+    }
+});
+//删除
+//curl -X DELETE   http://localhost:8080/users/2
+app.delete('/users/:id',function(req,res){
+    /*for(var i=0;i<users.length;i++){
+        if(users[i].id == req.params.id){
+            users.splice(i,1);
+            res.send({});
+            return;
+        }
+    }*/
+    users  = users.filter(function(user){
+           return user.id != req.params.id;
+    });
+    res.send({msg:'删除失败'});
+});
+//以资源为中间 URL里不要包含动词
+app.post('/transaction/:fromId/:toId',function(){
+  var money = req.body.money;
 
 });
 
