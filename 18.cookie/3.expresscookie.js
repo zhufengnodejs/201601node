@@ -24,6 +24,7 @@ app.get('/write', function (req, res) {
     });
     res.end('ok');
 });
+
 app.get('/read',function(req,res){
     console.log(req.cookies);
     res.send(req.cookies);
