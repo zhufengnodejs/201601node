@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" ng-controller="fireCtrl">
+
+        </div>
+    </div>
+</div>
+</body>
+<script src="angular.js"></script>
+<script src="firebase-web.js"></script>
+<script src="angularfire.js"></script>
+<script>
+   angular.module('fireModule',['firebase']);
+   angular.module('fireModule').controller('fireCtrl',function($scope,$firebaseArray){
+       var base = new Firebase('https://sizzling-heat-3542.firebaseio.com/zhangrenyang');
+       var bookBase = $firebaseArray(base);
+       $scope.books = bookBase;
+   });
+</script>
+</html>
