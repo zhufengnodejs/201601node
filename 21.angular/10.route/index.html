@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap.css">
+</head>
+<body>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#/index">首页</a></li>
+    <li role="presentation"><a href="#/user">用户管理</a></li>
+</ul>
+<div ng-view></div>
+</body>
+<script src="../angular.js"></script>
+<script src="../angular-route.js"></script>
+<script>
+    //把路由模块依赖到当前项目中
+    angular.module('zfpxModule',['ngRoute']);
+    angular.module('zfpxModule').controller('homeCtrl',function($scope){
+        $scope.title = 'home';
+    });
+    angular.module('zfpxModule').controller('userCtrl',function($scope){
+        $scope.title = 'user';
+    });
+    //config进行路由配置
+    angular.module('zfpxModule').config(function($routeProvider){
+        //进行路由的配置
+        $routeProvider.when('/index',{
+            templateUrl:'home.html',//模板
+            controller:'homeCtrl'//控制器 是用来提供数据
+        }).when('/user',{
+            templateUrl:'user.html',
+            controller:'userCtrl'
+        }).otherwise({
+            redirectTo:'/index'
+        });
+    });
+</script>
+</html>

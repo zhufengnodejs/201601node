@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body >
+<div class="container"  ng-controller="zfpxController">
+   {{130000000000|date}}<br/>
+   {{130000000000|date:'yyyy-MM-dd hh:mm:ss'}}<br/>
+   {{99999|currency}}<br/>
+    {{"100"|number}}<br/>
+    {{"100.111"|number:2}}<br/>
+    {{{name:'zfpx'}|json}}<br/>
+    {{'ABCDE'|lowercase}}<br/>
+    {{'abcde'|upperSome:2:2}}
+   <ul>
+       <li ng-repeat="book in books | limitTo:4 | orderBy:ob">{{book.name}}</li>
+   </ul>
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+    angular.module('zfpxModule',[]);
+    angular.module('zfpxModule').filter('upperSome',function(){
+        //返回新的函数，input是要转换的原始输入值 length是每一个参数
+        return function(input,front,end){
+           return  input.slice(0,front).toUpperCase()+input.slice(front,end*-1)+input.slice(end*-1).toUpperCase();
+        }
+    });
+    angular.module('zfpxModule').controller('zfpxController',function($scope){
+        $scope.books = [{name:'node',price:5},{name:'js',price:8}];
+        $scope.ob = '-price';
+    });
+</script>
+</html>
