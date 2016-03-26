@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="bootstrap.css">
 </head>
 <body >
-<div class="container" ng-init="books = [{name:'node',price:5},{name:'js',price:10}]" ng-controller="zfpxController">
+<div class="container"  ng-controller="zfpxController">
+    {{count}}
     <table class="table table-responsive">
         <tr>
             <td>书名</td>
@@ -25,14 +26,28 @@
         </tr>
     </table>
 </div>
-<div>
-
+<div class="container"  ng-controller="zfpxController">
+    {{count}}
 </div>
 </body>
 <script src="angular.js"></script>
 <script>
     angular.module('zfpxModule',[]);
-    angular.module('zfpxModule').controller('zfpxController',function($rootScope,$scope){
+    angular.module('zfpxModule').controller('zfpxController',function($rootScope,$scope,$http){
+        $scope.books = [];
+        //服务是单例的，一旦实例化实成，到处注入
+        if($http.count){
+            $http.count = $http.count +1;
+        }else{
+            $http.count = 1;
+        }
+        $scope.count =  $http.count;
+        console.log( $http.count);
+        //它封闭的是jquery里的ajax对象
+        $http.get('books.json').success(function(result){
+           console.log(result);
+            $scope.books = result;
+        });
         $scope.calc = function(){
            var sum = 0;
             $scope.books.forEach(function(book){

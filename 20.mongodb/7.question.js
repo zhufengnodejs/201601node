@@ -16,6 +16,10 @@ personSchema.method('greet', function () {
     console.log('how are you');
 })
 
+personSchema.method('grow up 1', function () {
+    console.log('how are you');
+})
+
 var Person = mongoose.model('person', personSchema);
 //实例
 var person = new Person({
