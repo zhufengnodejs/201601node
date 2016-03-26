@@ -5,12 +5,10 @@
     <title>Title</title>
 </head>
 <body>
+<!--视图-->
 <div ng-controller="zfpxCtrl">
 {{username}}
-    {{1+1}}
-    <span>
-        {{username}}
-    </span>
+    <input type="text" ng-model="username">
 </div>
 <div>
 
@@ -24,9 +22,15 @@
   angular.module('zfpxMod',[]);
   //controller 控制器
    //每创建一个控制 器，就会送一个$scope作用域，默认是个空对象{}
-   angular.module('zfpxMod').controller('zfpxCtrl',function($scope){
+   angular.module('zfpxMod').controller('zfpxCtrl',function($timeout,$scope){
        //控制器的作用就是为了给$scope加属性
+       ///$scope 的名字是定死的，不能修改
        $scope.username = 'zfpx';
+       //settimeout()
+       //$timeout 比原生的settimeout 多了一个刷新视图的操作
+       $timeout(function(){
+           $scope.username = new Date().toLocaleString();
+       },1000)
    });
 </script>
 </html>
