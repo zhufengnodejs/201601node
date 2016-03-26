@@ -1,6 +1,9 @@
 
-
-function a(){
-    console.log(name);
+var xxx = 'xxx';
+function parent(){
+    child(xxx);
 }
-a();
+function child(n){
+    console.log(n);
+}
+parent();
