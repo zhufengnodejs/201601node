@@ -38,3 +38,10 @@ PersonModel.find({email:'email',"$or":[{"name":"zfpx1"},{"age":2000}]},function(
     //查询name为zfpx或age为6的全部文档
     console.log(docs);
 });
+var start = new Date();
+var end = new Date();
+
+PersonModel.find({time:{$lt:end},time:{$gt:start}},function(error,docs){
+    //查询name为zfpx或age为6的全部文档
+    console.log(docs);
+});

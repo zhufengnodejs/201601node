@@ -2,7 +2,7 @@
 var mongoose = require("mongoose");
 //3. 连接数据库 mongod 服务器端  mongo客户端
 //数据库的名称可以是不存在
-var db = mongoose.connect("mongodb://123.57.143.189:27017/zfpx");
+var mongoose = mongoose.connect("mongodb://123.57.143.189:27017/zfpx");
 //如果连接成功会执行error回调
 db.connection.on("error", function (error) {
     console.log("数据库连接失败：" + error);
@@ -21,8 +21,14 @@ var PersonSchema = new mongoose.Schema({
     email: { type:String,default:''}
 });
 //创建模型，可以用它来操作数据库中的person集合，指的是整体
-var PersonModel = db.model("person", PersonSchema);
+var PersonModel = mongoose.model("person", PersonSchema);
 
 PersonModel.find({name:/zfpx/},null,{limit:1},function(err,docs){
+    console.log(docs);
+});
+
+//现在要分页查询，每页3条，查询第2页
+//skip 跳过的条数 limit 限制返回的条数 sort排序 1升序 -1 降序
+PersonModel.find({},{_id:0,name:1},{limit:3,skip:3,sort:{age:1,name:-1}},function(err,docs){
     console.log(docs);
 });
