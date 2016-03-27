@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+hello
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+window.onload = function(){
+    var socket = io.connect('/');
+     socket.on('connect',function(){
+         document.write('连接成功');
+     })
+    socket.on('message',function(msg){
+       console.log(msg);
+    })
+}
+</script>
+</html>

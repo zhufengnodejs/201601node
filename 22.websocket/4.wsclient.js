@@ -7,6 +7,6 @@ ws.on('open',function(){
 });
 
 //监听服务器发回来的消息
-ws.on('message',function(data,flags){
+ws.on('message',function(data){
   console.log(data);
 });
