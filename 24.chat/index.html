@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="bootstrap.css">
+    <style>
+        .user{
+            color:green;
+        }
+    </style>
 </head>
 <body>
   <div class="container">
@@ -35,19 +40,35 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
 window.onload = function(){
+    function addMsg(msg){
+        $('#messageUl').append('<li class="list-group-item"><span class="user">'+msg.user+'</span>:'+msg.content+'</li>');
+    }
     var socket = io.connect('/');
      socket.on('connect',function(){
-         $('#messageUl').append('<li class="list-group-item">服务器连接成功</li>');
+        addMsg({user:'系统',content:'连接成功'});
      })
     //监听服务器发过来的消息
     socket.on('message',function(msg){
-        $('#messageUl').append('<li class="list-group-item">'+msg+'</li>');
+        addMsg(msg);
     })
+    $('#txtMsg').keypress(function(event){
+            var char = event.charCode || event.keyCode || event.which;
+            if(char == 13){
+                $('#sendBtn').click();
+            }
+    });
     $('#sendBtn').click(function(){
         var message = $('#txtMsg').val();
-        socket.send(message);
-        $('#txtMsg').val('');
+        if(message&& message.length>0){
+            var message = $('#txtMsg').val();
+            socket.send(message);
+            $('#txtMsg').val('');
+        }
     });
+
+    $('body').delegate('ul li span','click',function(){
+        $('#txtMsg').val('@'+$(this).text()+' ');
+    })
 }
 </script>
 </html>
