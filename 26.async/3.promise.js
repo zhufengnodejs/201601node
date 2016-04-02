@@ -30,6 +30,9 @@ var fs = require('fs');
 fs.readFile('1.txt','utf8',function(err,data){
     defer.resolve(data);//读取文件完成后调用resolve把状态改为成功
 })
+fs.readFile('1.txt','utf8',function(err,data){
+    
+})
 var promise = defer.promise;
 //defer给你一个承诺，当异步操作完成之后我会调用你传给我回调函数
 promise.then(function(data){
