@@ -9,7 +9,8 @@ var pool = mysql.createPool({
     host:'123.57.143.189',
     user:'root',
     password:'123456',
-    database:'studb'
+    database:'studb',
+    connectionLimit:10
 })
 
 pool.query('select  * from user',function(err,rows){
