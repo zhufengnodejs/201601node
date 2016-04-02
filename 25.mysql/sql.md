@@ -54,3 +54,32 @@ update student set age=age+1 where id=2;
  delete from student where name='刘萌';
 ```
 
+##插入和删除
+1. 先插入主键，再插入外键
+2. 先删除外键 ，再删除主键
+
+
+#查询全班的语文平均分
+```
+select AVG(grade.score) from  grade,course
+where  grade.cid = course.id and course.name = '语文'
+```
+
+#查询每个学生的平均成绩
+```
+-- 当group by 之后select这后只能出现两种 ，一个分组的条件，一个是聚合后的结果
+select student.name,AVG(grade.score) from grade,student
+where  grade.sid = student.id
+group by student.name
+having AVG(grade.score)>=70
+order by AVG(grade.score) ASC
+limit 0,2
+```
+
+#按总分进行全班排名
+```
+select student.name,SUM(grade.score) from grade,student
+where  grade.sid = student.id
+group by student.name
+order by SUM(grade.score) ASC
+```
