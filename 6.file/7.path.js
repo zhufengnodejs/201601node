@@ -17,4 +17,8 @@ console.log(path.basename('7.path.js','.js'));
 console.log(path.extname('7.path.js'));
 //从一个相对路径解析出一个绝对路径
 //以应用程序的所在目录为根起
+<<<<<<< HEAD
 console.log(path.resolve('book','node.json','..','mysql.json'));
+=======
+console.log(path.resolve('book','node.json','..','mysql.json'));
+>>>>>>> 3ecd38f75474cf2841c56067b91cab60ab2bb1bc

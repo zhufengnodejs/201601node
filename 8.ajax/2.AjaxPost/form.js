@@ -44,12 +44,28 @@ http.createServer(function(req,res){
             //发送响应
             res.end('ok');
         })
-    }else if(pathname == '/reg2'){
+    }else if(pathname == '/reg2') {
         // 构建一个解析器
-        var formParser = new formidable.IncomingForm();
-       ///用解析器解析请求体
+        var form = new formidable.IncomingForm();
+        ///用解析器解析请求体
         //把非file的input放在fields里
         //把文件类型的元素放在files里
+<<<<<<< HEAD
+        form.parse(req, function (err, fields, files) {
+            res.writeHead(200, {'content-type': 'text/plain'});
+            res.write('received upload:\n\n');
+            //inspect是把对象转成字符串
+            res.end(util.inspect({fields: fields, files: files}));
+            var formParser = new formidable.IncomingForm();
+            ///用解析器解析请求体
+            //把非file的input放在fields里
+            //把文件类型的元素放在files里
+            formParser.parse(req, function (err, fields, files) {
+                res.writeHead(200, {'content-type': 'text/plain'});
+                //inspect是把对象转成字符串
+                res.end("/imgs/3.png");
+            });
+=======
         formParser.parse(req, function(err, fields, files) {
            fs.readFile(files.avatar.path,function(err,data){
                console.log(files.avatar);
@@ -82,8 +98,7 @@ http.createServer(function(req,res){
                 res.statusCode = 404;
                 res.end(JSON.stringify({name:'zfpx'}));
             }
+>>>>>>> 348375664d1827fa3567d735906b4ba64d5cb627
         })
     }
-
-
 }).listen(8080);

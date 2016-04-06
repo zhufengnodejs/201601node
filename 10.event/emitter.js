@@ -2,9 +2,14 @@ var EventEmitter = require('events');
 var util = require('util');
 function Girl(name){
     this.name = name;
-    EventEmitter.call(this);
+    EventEmitter.call(this);  //Girl继承了EventEmitter的私有方法。
 }
-util.inherits(Girl,EventEmitter);
+util.inherits(Girl,EventEmitter);    //inherits让Gril继承了EventEmitter的原型方法。
+
+/*
+* Inherits是相当于js里的原型继承，只能继承prototype上的属性方法，用call是为了继承私有的，call看你自己的需要用不用
+* 也就是说call+Inherits =继承私有+原型
+* */
 
 var girl = new Girl();
 function Boy(name){

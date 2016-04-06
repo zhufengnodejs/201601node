@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section{
+            display:block;
+            margin:15px;
+        }
+        span{
+            display: inline-block;
+            width:80px;
+            text-align:justify;
+        }
+        input[type="button"]{
+            width:50px;
+            height:20px;
+        }
+        table{
+            margin:25px 0 0 25px;
+            border-right: #00f901 10px ridge;
+            border-top: #00f901 10px ridge;
+            border-left: #00f901 10px ridge;
+            border-bottom: #00f901 10px ridge;
+            border-collapse: collapse;
+            borderColor:#00f901;
+            height:40px;
+            cellPadding:1;
+            width:250px;
+            align:center;
+        }
+        textarea{
+            display:block;
+            margin:10px 0 0 25px;
+            width:240px;
+            height:300px;
+            border:2px solid #000;
+            resize:none;
+            font-size:20px;
+            /*outline:none;*/
+        }
+        input[type="button"]:nth-last-of-type(1){
+            margin:10px 0 0 225px;
+        }
+    </style>
+</head>
+<body>
+<section><span>用户名:</span><input type="text" name="username"></section>
+<section><span>年龄:</span><input type="text" name="age"></section>
+<input type="button" onclick="reg()" value="注册">
+<input type="button" onclick="query()" value="登录">
+<input type="button" onclick="del()" value="删除">
+<input type="button" onclick="revise()" value="修改">
+<table border="1">
+    <tbody>
+    <tr>
+        <td>用户名</td>
+        <td>年龄</td>
+    </tr>
+    <tr id="data-checked">
+        <td id="data-login-username"></td>
+        <td id="data-login-age"></td>
+    </tr>
+    </tbody>
+</table>
+<textarea></textarea>
+<input type="button" onclick="submit()" value="提交">
+</body>
+<script>
+    function reg(){
+        var username = document.querySelector("input[name='username']").value;
+        var age  =document.querySelector("input[name='age']").value;
+        var user = {
+            username:username,
+            age:age
+        }
+        //1.创建ajax对象
+        var xhr = new XMLHttpRequest();
+
+        //指定参数 1
+        xhr.open('POST','/ajax.add',true);
+        //设置响应的类型，会自动化xhr.response转成对应的类型
+        xhr.responseType = 'json';
+        //注册当状态变化之后的回调函数
+        xhr.onreadystatechange = function(){
+            //当状态为4的时候，也就是响应接收完毕的时候
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    var user = xhr.response;
+                    //console.log(user);
+                    var tbody = document.querySelector("table tbody");
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    td1.innerHTML =user.username;
+                    var td2 = document.createElement('td');
+                    td2.innerHTML =user.age;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tbody.appendChild(tr);
+                }else if(xhr.status == 401){
+                    document.write(xhr.responseText);
+                }
+
+            }
+        }
+        //指定请求体发送数据
+        xhr.send(JSON.stringify(user));
+    }
+
+    function query(){
+        var username = document.querySelector("input[name='username']").value;
+        var age  =document.querySelector("input[name='age']").value;
+        var user = {
+            username:username,
+            age:age,
+            login:true
+        }
+        var xhr=new XMLHttpRequest();
+        xhr.open('GET','/ajax.query?username='+user.username+'&login='+user.login+'',true);
+        xhr.responseType='json';
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    var user = xhr.response;
+                    console.log(user);
+                    var tr=document.querySelector('#data-checked');
+                    tr.style.backgroundColor='rgba(0,255,0,0.8)';
+                    tr.children[0].innerHTML=user.username;
+                    tr.children[1].innerHTML=user.age;
+                    document.querySelector("input[name='age']").value=user.age;
+                    document.querySelector('textarea').value=user.article;
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    function submit(){
+        var username = document.querySelector('#data-login-username').innerHTML;
+        console.log(username);
+        var article =document.querySelector("textarea").value;
+        var user = {
+            username:username,
+            article:article
+        }
+        var xhr=new XMLHttpRequest();
+        xhr.open('POST','/ajax.submit',true);
+        xhr.responseType='json';
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    var user=xhr.response;
+                    //console.log(user);
+                    alert('提交成功');
+                    document.querySelector("textarea").value='';
+                }
+            }
+        }
+        xhr.send(JSON.stringify(user));
+    }
+
+    function del(){
+        var username = document.querySelector('#data-login-username').innerHTML;
+        var user = {
+            username:username
+        }
+        var xhr=new XMLHttpRequest();
+        xhr.open('GET','/ajax.delete?username='+user.username+'',true);
+        xhr.responseType='text';
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    var user=xhr.response;
+                    alert(user);
+                    document.querySelector('#data-login-username').innerHTML='';
+                    document.querySelector('#data-login-age').innerHTML='';
+                }
+            }
+        }
+        xhr.send();
+    }
+
+    function revise(){
+        var username = document.querySelector('#data-login-username').innerHTML;
+        var reusername = document.querySelector('input[name="username"]').value;
+        var reage = document.querySelector('input[name="age"]').value;
+        var user={
+            username:username,
+            reusername:reusername,
+            reage:reage
+        }
+        var xhr=new XMLHttpRequest();
+        xhr.open('POST','/ajax.repair',true);
+        xhr.reponseType='json';
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    var user = JSON.parse(xhr.response);
+                    console.log(user);
+                    alert('修改成功');
+                    document.querySelector('input[name="username"]').value='';
+                    document.querySelector('input[name="age"]').value='';
+                    document.querySelector('#data-login-username').innerHTML=user.username;
+                    document.querySelector('#data-login-age').innerHTML=user.age;
+                }
+            }
+        }
+        xhr.send(JSON.stringify(user));
+    }
+</script>
+</html>
