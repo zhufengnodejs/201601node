@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="clock"></div>
+</body>
+<script>
+window.onload = function(){
+    setInterval(function(){
+        //1.创建ajax对象 0
+        var xhr = new XMLHttpRequest();
+
+        //指定参数 1
+        xhr.open('GET','/clock',true);
+        //注册当状态变化之后的回调函数
+        xhr.onreadystatechange = function(){
+            //当状态为4的时候，也就是响应接收完毕的时候
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    document.querySelector('#clock').innerHTML = xhr.responseText;
+                }else{
+                    document.querySelector('#clock').innerHTML = xhr.statusText;
+                }
+
+            }
+        }
+        //指定请求体发送数据
+        xhr.send();
+    },1000);
+}
+</script>
+</html>

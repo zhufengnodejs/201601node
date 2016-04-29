@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxMod">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<!--视图-->
+<div ng-controller="zfpxCtrl">
+{{username}}
+    {{age}}
+    <input type="text"  ng-model="username">
+    <div ng-controller="zfpxCtrl">
+        <span ng-init="age=8"></span>
+    </div>
+</div>
+<div>
+
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+   //当引入angular.js之后，会在window下挂载一个angular的属性
+  //定义一个模块,第1参数是模块的名字,第2个参数是模块依赖的其它模块
+   //传二个参数代表定义一个新模块，一个参数表示获取刚才定义的那个模块
+  angular.module('zfpxMod',[]);
+  //controller 控制器
+   //每创建一个控制 器，就会送一个$scope作用域，默认是个空对象{}
+   angular.module('zfpxMod').controller('zfpxCtrl',function($rootScope,$scope){
+       //控制器的作用就是为了给$scope加属性
+       ///$scope 的名字是定死的，不能修改
+       $scope.username = 'zfpx';
+       $rootScope.age = 8;
+       //settimeout()
+       //$timeout 比原生的settimeout 多了一个刷新视图的操作
+     /*  $timeout(function(){
+           $scope.username = new Date().toLocaleString();
+       },1000)*/
+   });
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //1.创建socket对象
+    var socket = new WebSocket('ws://localhost:8080/');
+    //监听 连接事件
+    socket.onopen = function(){
+        //向服务器发送消息
+        socket.send('你好服务器');
+    }
+    socket.onmessage = function(event){
+        console.log(event.data);
+    }
+</script>
+</html>

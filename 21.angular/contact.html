@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fireModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" ng-controller="fireCtrl">
+            <!--消息提示框 -->
+          <div class="alert alert-success" ng-show="msg">{{msg}}</div>
+
+           <div class="row">
+               <a href="" class="btn btn-default" ng-click="showAddForm()">添加</a>
+               <a href="" class="btn btn-default" ng-click="cancel()">取消</a>
+           </div>
+
+            <div class="row">
+               <div class="panel panel-default">
+                   <div class="panel-body">
+                       姓名{{contact.name}}<br/>
+                       邮箱{{contact.email}}
+                   </div>
+               </div>
+            </div>
+            <!--增加联系人-->
+            <form  ng-submit="addFormSubmit();" ng-show="addFormShow">
+                <h3>增加联系人</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>
+                            <input type="text" class="form-control" ng-model="contact.name" placeholder="姓名" required>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label >
+                            <input type="text" class="form-control" ng-model="contact.email" placeholder="邮箱" required>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label >
+                            <input type="submit" class="form-control" value="增加" class="btn btn-primary">
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <!--修改联系人-->
+            <form  ng-submit="editFormSubmit();" ng-show="editFormShow">
+                <h3>增加联系人</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label >
+                            <input type="text" class="form-control" ng-model="contact.name" placeholder="姓名" required>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label >
+                            <input type="text" class="form-control" ng-model="contact.email" placeholder="邮箱" required>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label >
+                            <input type="submit" class="form-control" value="修改" class="btn btn-primary">
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <h3> <a href="#">你的联系人<span class="badge"></span></a></h3>
+            <table class="table table-responsive">
+                <tr>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="contact in contacts" ng-click="select(contact)">
+                    <td>{{contact.name}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>
+                        <a href="#" class="btn btn-warning" ng-click="editContactShow(contact)">编辑</a>
+                        <a href="#" class="btn btn-danger" ng-click="delete(contact)">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script src="angular.js"></script>
+<script src="firebase.js"></script>
+<script src="angularfire.js"></script>
+<script>
+   angular.module('fireModule',['firebase']);
+   angular.module('fireModule').controller('fireCtrl',function($scope,$firebaseArray){
+       $scope.contact = {};
+       //创建一个firebase数据库
+       var base = new Firebase('https://sizzling-heat-3542.firebaseio.com/zhangrenyang_contacts');
+       //得到了一个可以操作数据库的对象
+       var contactBase = $firebaseArray(base);
+       $scope.contacts = contactBase;
+       console.log(contactBase);
+       //显示添加联系人的表单
+       $scope.showAddForm = function(){
+           $scope.addFormShow = true;
+       }
+
+       $scope.addFormSubmit = function(){
+           contactBase.$add($scope.contact).then(function(ref){
+              var id = ref.key();
+               console.log('新保存的id',id);
+               $scope.contact = {};
+               $scope.addFormShow = false;
+               $scope.msg = "联系人已经添加";
+           });
+           return false;
+       }
+       $scope.delete = function(contact){
+           contactBase.$remove(contact);
+           $scope.msg = "删除成功";
+       }
+       $scope.select = function(contact){
+           $scope.contact = contact;
+       }
+       $scope.editContactShow = function(contact){
+           $scope.contact = contact;
+           $scope.editFormShow = true;
+
+       }
+
+       $scope.editFormSubmit = function(){
+           //每当保存一个对象就会生成一个默认的ID
+           var id = $scope.contact.$id;
+           var record = contactBase.$getRecord(id);
+           record.name = $scope.contact.name;
+           record.email = $scope.contact.email;
+           contactBase.$save(record).then(function(ref){
+               console.log(ref.key);
+           });
+           $scope.contact = {};
+           $scope.editFormShow = false;
+           $scope.msg = "联系人已经更新";
+           return false;
+       }
+
+       $scope.cancel = function(){
+           $scope.contact = {};
+           $scope.addFormShow = false;
+           $scope.editFormShow = false;
+       }
+   });
+</script>
+</html>

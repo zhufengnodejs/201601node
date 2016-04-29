@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body >
+<div class="container" ng-init="books = [{name:'node',price:5},{name:'js',price:10}]" ng-controller="zfpxController">
+    <table class="table table-responsive">
+        <tr>
+            <td>书名</td>
+            <td>价格</td>
+        </tr>
+        <tr ng-repeat="book in books">
+            <td>{{ book.name}}</td>
+            <td><input type="text" ng-model="book.price"></td>
+        </tr>
+    </table>
+    <table class="table table-responsive">
+        <tr>
+            <td>原金额:{{calc()}}</td>
+            <td>折扣<input type="text" ng-model="discount"></td>
+            <td>最终价:{{calc()*(discount)}}</td>
+        </tr>
+    </table>
+</div>
+<div>
+
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+    angular.module('zfpxModule',[]);
+    angular.module('zfpxModule').controller('zfpxController',function($rootScope,$scope){
+        $scope.calc = function(){
+           var sum = 0;
+            $scope.books.forEach(function(book){
+                sum += Number(book.price);
+            });
+            return sum;
+        }
+    });
+</script>
+</html>

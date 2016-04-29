@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap.css">
+</head>
+<body>
+<ul class="nav nav-pills">
+    <li role="presentation" class="active"><a href="#/list">列表页</a></li>
+    <li role="presentation"><a href="/detail">详情页</a></li>
+</ul>
+<div ng-view></div>
+</body>
+<script src="../angular.js"></script>
+<script src="../angular-route.js"></script>
+<script>
+    //把路由模块依赖到当前项目中
+    angular.module('zfpxModule',['ngRoute']);
+    angular.module('zfpxModule').controller('listCtrl',function($scope,$http){
+        $http.get('books.json').success(function(data){
+            $scope.books = data;
+        });
+
+    });
+    angular.module('zfpxModule').controller('detailCtrl',function($scope,$routeParams,$http){
+        //从路由中得到ID
+        var bookId = $routeParams.bookId;
+        //通过ajax获得所有的书，并且取得ID对应的书籍对象
+        $http.get('books.json').success(function(data){
+            $scope.book = data.filter(function(book){
+                return book.id == bookId;
+            })[0];
+        });
+    });
+    //config进行路由配置
+    angular.module('zfpxModule').config(function($routeProvider){
+        //进行路由的配置
+        $routeProvider.when('/list',{
+            templateUrl:'list.html',//模板
+            controller:'listCtrl'//控制器 是用来提供数据
+        }).when('/detail/:bookId',{
+            templateUrl:'detail.html',
+            controller:'detailCtrl'
+        }).otherwise({
+            redirectTo:'/list'
+        });
+    });
+</script>
+</html>

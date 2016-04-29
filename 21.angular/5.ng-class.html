@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+<form action="" ng-init="username=''">
+    <div class="form-group" ng-class="{'has-error':username.length<6,'has-success':username.length>=6}">
+        <label for="username">用户名</label>
+        <input type="text" class="form-control" id="username" ng-model="username">
+    </div>
+</form>
+<div>
+
+</div>
+</body>
+<script src="angular.js"></script>
+</html>

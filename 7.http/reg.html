@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名<input type="text" name="username"><br/>
+年龄<input type="text" name="age">
+<input type="button" onclick="reg()" value="注册">
+<input type="button" value="查询" >
+<table>
+    <tbody>
+       <tr>
+           <td>用户名</td>
+           <td>年龄</td>
+       </tr>
+    </tbody>
+</table>
+</body>
+<script>
+    function reg(){
+        var username = document.querySelector("input[name='username']").value;
+        var age  =document.querySelector("input[name='age']").value;
+        var user = {
+            username:username,
+            age:age
+        }
+        //1.创建ajax对象 0
+        var xhr = new XMLHttpRequest();
+
+        //指定参数 1
+        xhr.open('POST','/reg',true);
+        //设置响应的类型，会自动化xhr.response转成对应的类型
+        xhr.responseType = 'json';
+        //注册当状态变化之后的回调函数
+        xhr.onreadystatechange = function(){
+            //当状态为4的时候，也就是响应接收完毕的时候
+            if(xhr.readyState == 4){
+                if(xhr.status == 200){
+                    var user = xhr.response;
+                    console.log(user);
+                    var tbody = document.querySelector("table tbody");
+                    var tr = document.createElement('tr');
+                    var td1 = document.createElement('td');
+                    td1.innerHTML =user.username;
+                    var td2 = document.createElement('td');
+                    td2.innerHTML =user.age;
+                    tr.appendChild(td1);
+                    tr.appendChild(td2);
+                    tbody.appendChild(tr);
+                }else{
+
+                }
+
+            }
+        }
+        //指定请求体发送数据
+        xhr.send(JSON.stringify(user));
+    }
+
+</script>
+</html>

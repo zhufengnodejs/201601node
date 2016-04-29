@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="zfpxModule">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body >
+<div class="container"  ng-controller="zfpxController">
+    <table class="table table-responsive">
+        <tr>
+            <td>书名</td>
+            <td>删除</td>
+        </tr>
+        <tr ng-repeat="book in books track by $index">
+            <td>{{book}}</td>
+            <td><button ng-click="delete($index)">删除</button></td>
+        </tr>
+    </table>
+    <input type="text" ng-model="newBook"/>
+    <button ng-click="addList(newBook)">添加</button>
+</div>
+</body>
+<script src="angular.js"></script>
+<script>
+    angular.module('zfpxModule',[]);
+    //定义一个服务
+    angular.module('zfpxModule').factory('bookService',function(){
+        var books = ['node.js','javascript'];
+        //会返回一个对象供其它组件来注入
+        return {
+            list:function(){
+                return books;
+            },
+            add:function(bookname){
+                books.push(bookname);
+            },
+            delete:function(index){
+                books.splice(index,1);
+            }
+        }
+    });
+    angular.module('zfpxModule').controller('zfpxController',function($scope,bookService){
+        $scope.books =  bookService.list();
+        $scope.newBook = '';
+        $scope.addList = bookService.add;
+        $scope.delete = bookService.delete;
+    });
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="content"></ul>
+</body>
+<script>
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET','books.json',false);//异步发起请求
+  //设置响应类型
+  //xhr.responseType = 'json';
+  xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
+          //获取所有的响应头
+          //console.log(xhr.getAllResponseHeaders());
+          //获取指定的响应头
+          //console.log(xhr.getResponseHeader('Content-Type'));
+          //获取响应体以及响应的状态码描述
+          //console.log(xhr.responseText,xhr.statusText);
+          //输出响应体，响应体的类型由responseType决定
+          //console.log(xhr.response);
+          //得到响应体，转成json数组
+          console.log(xhr.response);
+          var books = JSON.parse(xhr.responseText);
+          var content = document.querySelector('#content');
+          for(var i=0;i<books.length;i++){
+              var li = document.createElement('li');
+              li.innerHTML = books[i].name;
+              content.appendChild(li);
+          }
+
+      }
+  //异步的操作
+  xhr.send();
+
+  }
+</script>
+</html>
